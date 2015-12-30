@@ -1,0 +1,7 @@
+[submodule "libuv"]
+	path = libuv
+	url = https://github.com/joyent/libuv.git
+
+[submodule "http-parser"]
+  path = http-parser
+  url = git@github.com:nodejs/http-parser.git
