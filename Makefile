@@ -9,13 +9,16 @@ CFLAGS=-Wall $(OLEVEL) -I libuv/include -std=gnu99
 FILES=server.c
 APP=server
 
-all: $(FILES) libuv/libuv.a
+all: $(FILES) libuv/.libs/libuv.a http-parser/http-parser.o
 	$(CC) $(CFLAGS) -o \
 	$(APP) $(FILES) \
-	libuv/libuv.a -lpthread -lcrypto -lm $(RTFLAGS)
+	libuv/.libs/libuv.a http-parser/http-parser.o -lpthread -lcrypto -lm $(RTFLAGS)
 
 libuv/libuv.a:
 	$(MAKE) -C libuv
+
+http-parser/http-parser.o:
+	$(MAKE) -C http-parser
 
 valgrind: OLEVEL=-O0 -g
 valgrind: all
