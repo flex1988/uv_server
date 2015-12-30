@@ -9,7 +9,7 @@ CFLAGS=-Wall $(OLEVEL) -I libuv/include -std=gnu99
 FILES=server.c
 APP=server
 
-all: $(FILES) libuv/.libs/libuv.a http-parser/http-parser.o
+all: $(FILES) libuv/libuv.a http-parser/http-parser.o
 	$(CC) $(CFLAGS) -o \
 	$(APP) $(FILES) \
 	libuv/.libs/libuv.a http-parser/http-parser.o -lpthread -lcrypto -lm $(RTFLAGS)
