@@ -12,7 +12,7 @@ APP=server
 all: $(FILES) libuv/libuv.a http-parser/http-parser.o
 	$(CC) $(CFLAGS) -o \
 	$(APP) $(FILES) \
-	libuv/.libs/libuv.a http-parser/http-parser.o -lpthread -lcrypto -lm $(RTFLAGS)
+	libuv/.libs/libuv.a http-parser/http_parser.c -lpthread -lcrypto -lm $(RTFLAGS)
 
 libuv/libuv.a:
 	$(MAKE) -C libuv
